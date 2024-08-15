@@ -1,0 +1,29 @@
+.input_opt{
+    padding-right: 20px;
+}
+opt{
+    border:none;
+    margin-top: 7px;
+}
+.cu_li{
+    border-radius: 7px !important;
+}
+.cu_card{
+   margin-top:25px;
+}
+.cu_li:hover{
+    border: 1px solid blue;
+}
+.cu_bg{
+    background-color: blue;
+    color: white;
+}
+.cu_btn{
+    margin :10px;
+    width: 130px;
+    height: 45px;
+    font-size: 20px;
+    padding: 2px;
+    float: right;
+    margin-bottom: 25px;
+}

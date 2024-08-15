@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Quiz{% endblock title %}
+{% block CustomHeaders %}
+<link rel="stylesheet" href="{% static "css/quiz.css" %}">
+<style>
+   
+</style>
+{% endblock CustomHeaders %}
+{% block content %}
+<div class="container">
+    <h1>Sample Quiz</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% for quest,opt in quiz_data%}
+        <div class="cu_card">
+        <div class="card cu_size">
+            <div class="card-header cu_bg">
+             <h5> Question {{forloop.counter}} </h5>
+            </div>
+            <div class="card-body">
+              <p class="card-text">{{quest}}</p>
+              <ul class="list-group list-group-flush">
+                {% for x in opt %}
+                <opt onclick="optionClicked({{forloop.counter}},{{forloop.parentloop.counter}})">
+                <li class="list-group-item cu_li">
+                    <input type="radio" name="q{{forloop.parentloop.counter}}" value="{{x}}" id="op{{forloop.counter}}_{{forloop.parentloop.counter}}"> {{x}}
+                </li>
+                </opt>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+          <div>
+          {% endfor %}
+            <br>
+            <button type="submit" class="btn btn-primary cu_btn">Submit</button>
+    </form>
+</div>
+<script>
+    function optionClicked(i,j){
+        opt=document.getElementById("op"+i+"_"+j);
+        opt.checked=true;
+    }
+</script>
+{% endblock content %}

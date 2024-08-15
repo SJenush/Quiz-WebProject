@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Quiz{% endblock title %}
+{% block CustomHeaders %}
+    <link rel="stylesheet" href="{% static "css/home.css" %}">
+{% endblock CustomHeaders %}
+{% block content %}
+
+    <div class="container">
+    <h1>Quiz</h1>
+    
+    <p>{% if user.is_authenticated %}Hello {{user.username}}!&nbsp{% endif %}Welcome to the quiz! Click the button below to start.</p>
+
+    <a href="{% url "quizPage" %}" class="btn btn-primary">Start</a>
+    </div>
+{% endblock content %}

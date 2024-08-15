@@ -1,0 +1,51 @@
+#error_msg{
+    color: red;
+    font-size: 15px;
+    margin-left: 15px;
+}
+.container{
+    width: 420px;
+    margin-top: 200px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    top:50%;
+    bottom: 50%;
+    box-shadow: 0 0 10px #000;
+   }
+   h2{
+    text-align: center;
+    padding: 20px;
+   }
+   table{
+    align-items: center;
+   }
+   label{
+    font-size: 20px;
+    padding: 10px;
+   }
+   .in_cs{
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-bottom: 1.3px solid black;
+   }
+   input[type="submit"]{
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background-color: #0011ff;
+    color: white;
+    border-radius: 5px;
+    font-size: 20px;
+    width: 100px;
+   }
+   .end_align{
+    text-align: end;
+   }
+   .cu_a{
+    font-style: italic;
+    color: #0011ff;
+    font-size: 16px;
+   }
