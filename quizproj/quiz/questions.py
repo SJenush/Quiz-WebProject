@@ -1,8 +1,16 @@
 import random
 
-
-def CreateContext(action):
-    questions = [
+from quiz.models import QuizQuestions
+def CreateContext(request,action,isCustom):
+    if isCustom:
+        url=request.GET.get('quizLink')
+        Quiz=QuizQuestions.objects.get(url=url)
+        questions=Quiz.data["questions"]
+        options=Quiz.data["options"]
+        answers=Quiz.data["answers"]
+        title=Quiz.data["title"]
+    else:
+        questions = [
     "What is the capital of France?",
     "Who wrote the play 'Romeo and Juliet'?",
     "What is the largest planet in our solar system?",
@@ -14,7 +22,7 @@ def CreateContext(action):
     "What is the longest river in the world?",
     "Who is known as the 'Father of Computers'?"
     ]
-    options = [
+        options = [
     ["Paris", "Rome", "Berlin", "Madrid"],
     ["William Shakespeare", "Charles Dickens", "Jane Austen", "Mark Twain"],
     ["Jupiter", "Saturn", "Earth", "Mars"],
@@ -26,16 +34,20 @@ def CreateContext(action):
     ["Nile", "Amazon", "Yangtze", "Mississippi"],
     ["Charles Babbage", "Alan Turing", "John von Neumann", "Blaise Pascal"]
     ]
+        title="Sample Quiz"
+        answers=GetAnswers()
     for opt in options:
         random.shuffle(opt)
     if action=='QuizPage':
         quiz_data=zip(questions,options)
         context={
+            'title':title,
         'quiz_data':quiz_data,
         }
     elif action=='ViewScore':
-        quiz_data=zip(questions,GetAnswers())
+        quiz_data=zip(questions,answers)
         context={
+            'title':title,
         'quiz_data':quiz_data,
         }
     return context
@@ -53,3 +65,6 @@ def GetAnswers():
     "Charles Babbage"
     ]
     return answers
+def GetCustomAnswers(url):
+    record=QuizQuestions.objects.get(url=url)
+    return record.data["answers"]

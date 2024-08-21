@@ -23,3 +23,7 @@ def register(request):
         context={"error":''}
         return True,context
     return False,{"error":''}
+
+def SetSessionVariables(user,request):
+    user_t=User.objects.get(username=user.username)
+    

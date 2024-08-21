@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Submissions{% endblock title %}
+{% block CustomHeaders %}
+<style>
+    th{
+        font-size: 20px;
+    }
+    td{
+        font-size: 18px;
+    }
+</style>
+{% endblock CustomHeaders %}
+{% block content %}
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Score</th>
+                <th>Submission Date</th>
+            </thead>
+            <tbody>
+                {% for score in details  %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{score.name}}</td>
+                    <td>{{score.score}}/{{score.total}}</td>
+                    <td>{{score.date}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}

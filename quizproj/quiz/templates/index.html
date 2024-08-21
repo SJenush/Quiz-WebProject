@@ -11,6 +11,6 @@
     
     <p>{% if user.is_authenticated %}Hello {{user.username}}!&nbsp{% endif %}Welcome to the quiz! Click the button below to start.</p>
 
-    <a href="{% url "quizPage" %}" class="btn btn-primary">Start</a>
+    <a href="{% url "ViewQuiz" %}" class="btn btn-primary">Start</a>
     </div>
 {% endblock content %}

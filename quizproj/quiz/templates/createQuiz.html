@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Create Quiz{% endblock title %}
+{% block CustomHeaders %}
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<link rel="stylesheet" href="{% static "css/quiz.css" %}">
+<link rel="stylesheet" href="{% static "css/create_quiz.css" %}">
+{% endblock CustomHeaders %}
+{% block content %}
+    <div class="container">
+        <form  method="post" autocomplete="off">
+            {% csrf_token %}
+    <div class="container" id="q_container">
+        <label for=""><h3>Quiz Title:</h3></label><input type="text" name="title" id="" class="quiz_title in_des" placeholder="Enter Quiz title" required/>
+        
+        <div class="qn card cu_size" id="div_qn1">
+            <div class="card-header cu_bg">
+            <input type="text" name="q[]" class="quiz_quest in_des" placeholder="Enter question" required/>
+            <button class="qn_remove" data-rm="1">Remove Question</button>
+        </div>
+       
+        <div class="option">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item cu_li"><input type="radio" name="ans[1]"  id="" checked value="0"><input type="text" name="options[]" id="" class="in_des"placeholder="option 1" required></li>
+                <li class="list-group-item cu_li"><input type="radio" name="ans[1]" id=""value="1"><input type="text" name="options[]" id="" class="in_des"placeholder="option 2" required></li>
+                <li class="list-group-item cu_li"><input type="radio" name="ans[1]" id=""value="2"><input type="text" name="options[]" id=""class="in_des" placeholder="option 3" required></li>
+                <li class="list-group-item cu_li"><input type="radio" name="ans[1]" id=""value="3"><input type="text" name="options[]" id="" class="in_des"placeholder="option 4" required></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    <button type="button" id="btn_add" class="btn btn-primary cu_btn ">+ Add Question</button><br><br><br>
+    <input type="submit" class="btn btn-primary cu_btn" value="Create Quiz">
+</form>
+</div>
+    <script src="{% static "js/quiz_generate.js" %}"></script>
+{%endblock content %}

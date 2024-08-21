@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Generate Url{% endblock title %}
+{% block CustomHeaders %}
+<style>
+    .container{
+        align-items:center;
+    }
+    h2{
+        text-align:center
+    }
+</style>
+{% endblock CustomHeaders %}
+{% block content %}
+<div class="container">
+    {% if url is not None %}
+    <h2>Quiz has been created successfully</h2>
+    <h6>URL: <a href="{% url "quizPage" %}?quizLink={{url}}">{% url "quizPage" %}?quizLink={{url}}</a></h6>
+    {% else %}
+    <h4>Something Went wrong!</h4>
+    {% endif %}
+</div>
+{% endblock content %}

@@ -1,0 +1,42 @@
+.qn{
+    margin: 20px;
+}
+.in_des{
+    font-size: 15px;
+    outline: none;
+    border: none;
+    border-bottom: 1 px;
+    background-color: transparent;
+}
+#btn_add{
+    float: left;
+    width: 200px;
+}
+.quiz_quest{
+    width: 75%;
+    font-weight: bold;
+    font-size: 25px;
+    color:white !important;
+}
+.quiz_quest :focus{
+    background-color: transparent;
+}
+.quiz_quest :active{
+    background-color: white;
+}
+.quiz_quest ::-webkit-input-placeholder{
+    color:white;
+}
+.quiz_title{
+    padding: 20px;
+    font-size: 30px;
+    width: 40%;
+}
+.qn_remove{
+    color: white;
+    background-color: red;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+}

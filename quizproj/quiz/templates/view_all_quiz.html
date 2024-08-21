@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Quiz{% endblock title %}
+{% block CustomHeaders %}
+<link rel="stylesheet" href="{% static "css/quiz.css" %}">
+<style>
+    .cu_p{
+        text-align: right;
+        float: right;
+        font-style: italic;
+    }
+    .cu_size{
+        margin: 20px;
+    }
+    h4{
+        padding-bottom: 20px;
+    }
+</style>
+{% endblock CustomHeaders %}
+
+{% block content %}
+    <div class="container">
+        <div class="card cu_size">
+            <div class="card-body">
+            <h4>Sample Quiz</h4>
+            <p class="cu_p">Created by admin</p>
+            <a href="{% url "quizPage" %}"><button class="btn btn-primary">Start Quiz</button></a>
+            
+        </div>
+        </div>
+    {% for x in quiz %}
+        <div class="card cu_size">
+            <div class="card-body">
+            <h4>{{x.data.title}}</h4>
+            <p class="cu_p">Created by {% if x.username == user %}You {% else %}{{x.username}}{% endif %}</p>
+            <a href="{% url "quizPage" %}?quizLink={{x.url}}"><button class="btn btn-primary">Start Quiz</button></a>
+            {% if x.username == user %}
+            <a href="{% url "ViewSubmissions" %}?quizLink={{x.url}}"><button class="btn btn-danger">View Submissions</button></a>
+            {% endif %}
+        </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}
