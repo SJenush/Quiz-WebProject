@@ -24,8 +24,12 @@
 .quiz_quest :active{
     background-color: white;
 }
-.quiz_quest ::-webkit-input-placeholder{
-    color:white;
+.quiz_ques ::placeholder{
+    color:white !important;
+    opacity: 1;
+}
+#im ::placeholder{
+    color: red !important;
 }
 .quiz_title{
     padding: 20px;
