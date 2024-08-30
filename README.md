@@ -24,7 +24,6 @@ This is a web application built using Django that allows users to create quizzes
 1. **Clone the repository**:
     ```bash
     git clone https://github.com/SJenush/Quiz-WebProject.git
-    cd quiz-web-app
     ```
 
 2. **Create a virtual environment** (optional but recommended):
